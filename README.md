@@ -2,6 +2,10 @@
 本地缓存，基于redis, rocketmq快速同步到多台服务器，正常情况下毫秒级别的延迟，有效防止缓存穿透，击穿，雪崩。
 
 redis
+
+    @Slf4j
+public class RedisClusterCacheTest extends BaseTest {
+
     private static ClusterCache<Long, Long> clusterCache;
     private static ClusterCache<Long, Long> clusterCache2;
     private static CacheMessagePublisher cacheMessagePublisher;
@@ -70,6 +74,7 @@ redis
         clusterCache2.get(3L);
         Assert.assertEquals(nextLoadCount, loadCount);
     }
+  }
 
 
 
